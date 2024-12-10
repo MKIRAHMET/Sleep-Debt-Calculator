@@ -35,7 +35,7 @@ function getActualSleepHours() {
 //console.log(getActualSleepHours());
 
 function getIdealSleepHours(){
-  let idealHours = 8;
+  let idealHours = 2;
   return idealHours * 7;
 }
 
@@ -43,8 +43,24 @@ function getIdealSleepHours(){
 //console.log(getIdealSleepHours());
 
 
+function calculateSleepDebt() {
+  let actualSleepHours = getActualSleepHours();
+  let idealSleepHours = getIdealSleepHours();
+  let sleepDebt = 0;
+
+  if (actualSleepHours === idealSleepHours) {
+    console.log('You got the perfect amount of sleep!');
+  } else if (actualSleepHours < idealSleepHours) {
+    console.log('You need to sleep more.');
+    sleepDebt = idealSleepHours - actualSleepHours;
+    console.log(`You need to sleep ${sleepDebt} more hours.`);
+  } else {
+    console.log('You slept more than you need.');
+    sleepDebt = actualSleepHours - idealSleepHours;
+    console.log(`You slept ${sleepDebt} hours more than you need.`);
+  }
+}
 
 
-
-
+calculateSleepDebt()
 
